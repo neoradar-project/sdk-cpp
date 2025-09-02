@@ -6,7 +6,7 @@ A C++ SDK for developing NeoRadar plugins.
 
 - C++20 or later
 - CMake 3.15 or later
-- NeoRadar CLI (Plugin Packaging)
+- [NeoRadar CLI (Plugin Packaging)](https://github.com/neoradar-project/cli)
 
 ## Usage
 
