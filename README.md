@@ -42,7 +42,7 @@ target_link_libraries(MyPlugin
 
 # === Plugin Packaging ===
 # Include the packaging module (provided by the SDK)
-include(PluginPackaging)
+include(PluginPackager)
 
 # One line = cross-platform packaging!
 neoradar_package_plugin()

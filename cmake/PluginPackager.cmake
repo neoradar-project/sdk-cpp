@@ -1,4 +1,4 @@
-# PluginPackaging.cmake - NeoRadarSDK Plugin Packaging Utilities
+# PluginPackager.cmake - NeoRadarSDK Plugin Packaging Utilities
 # Reusable CMake module for cross-platform plugin packaging and distribution.
 
 function(setup_plugin_packaging TARGET_NAME)

@@ -6,14 +6,16 @@ project(NeoRadarSDK
     LANGUAGES CXX
 )
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-option(NEORADAR_SDK_BUILD_EXAMPLES "Build examples" ON)
+option(NEORADAR_SDK_BUILD_EXAMPLES "Build examples" OFF)
 option(NEORADAR_SDK_INSTALL "Install NeoRadarSDK" ON)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+include(PluginPackager)
 
 add_library(NeoRadarSDK STATIC
     src/SDK.cpp
@@ -29,7 +31,7 @@ target_include_directories(NeoRadarSDK
 
 target_compile_features(NeoRadarSDK 
     PUBLIC 
-        cxx_std_20
+        cxx_std_17
 )
 
 if(WIN32)
@@ -65,7 +67,7 @@ if(NEORADAR_SDK_INSTALL)
         FILES_MATCHING PATTERN "*.h"
     )
 
-    install(FILES cmake/PluginPackaging.cmake
+    install(FILES cmake/PluginPackager.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/NeoRadarSDK
     )
 
@@ -102,7 +104,7 @@ if(NEORADAR_SDK_INSTALL)
 endif()
 
 if(NEORADAR_SDK_BUILD_EXAMPLES AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/examples)
-    include(PluginPackaging)
+    include(PluginPackager)
     add_subdirectory(examples)
 endif()
 

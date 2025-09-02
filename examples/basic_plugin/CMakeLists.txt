@@ -13,6 +13,6 @@ target_link_libraries(ExamplePlugin
 
 target_compile_features(ExamplePlugin PRIVATE cxx_std_17)
 
-include(PluginPackaging)
+include(PluginPackager)
 
 neoradar_package_plugin()
