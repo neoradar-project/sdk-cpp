@@ -1,0 +1,14 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+# Make the PluginPackaging.cmake module available
+set(NeoRadarSDK_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}")
+list(APPEND CMAKE_MODULE_PATH "${NeoRadarSDK_CMAKE_DIR}")
+
+# Include the packaging utilities
+include(PluginPackaging)
+
+include("${CMAKE_CURRENT_LIST_DIR}/NeoRadarSDKTargets.cmake")
+
+check_required_components(NeoRadarSDK)
