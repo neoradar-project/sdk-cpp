@@ -4,7 +4,7 @@ A C++ SDK for developing NeoRadar plugins.
 
 ## Requirements
 
-- C++17 or later
+- C++20 or later
 - CMake 3.15 or later
 - NeoRadar CLI (Plugin Packaging)
 
@@ -15,7 +15,7 @@ A C++ SDK for developing NeoRadar plugins.
 Add this SDK as a git submodule to your project:
 
 ```bash
-git submodule add https://github.com/your-org/NeoRadarSDK.git third-party/NeoRadarSDK
+git submodule add https://github.com/neoradar-project/sdk-cpp.git third-party/NeoRadarSDK
 git submodule update --init --recursive
 ```
 
