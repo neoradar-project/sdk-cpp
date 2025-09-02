@@ -40,8 +40,6 @@ target_link_libraries(MyPlugin
         NeoRadarSDK::NeoRadarSDK
 )
 
-target_compile_features(MyPlugin PRIVATE cxx_std_17)
-
 # === Plugin Packaging ===
 # Include the packaging module (provided by the SDK)
 include(PluginPackaging)
