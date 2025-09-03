@@ -38,13 +38,6 @@ target_link_libraries(MyPlugin
     PRIVATE
         NeoRadarSDK::NeoRadarSDK
 )
-
-# === Plugin Packaging ===
-# Include the packaging module (provided by the SDK)
-include(PluginPackager)
-
-# One line = cross-platform packaging!
-neoradar_package_plugin()
 ```
 
 ### Method 2: Installed SDK (find_package)
@@ -57,8 +50,6 @@ find_package(NeoRadarSDK REQUIRED)
 add_library(MyPlugin SHARED src/MyPlugin.cpp)
 target_link_libraries(MyPlugin PRIVATE NeoRadarSDK::NeoRadarSDK)
 
-# Packaging tools are automatically available
-neoradar_package_plugin()
 ```
 
 ## Basic Plugin Structure
