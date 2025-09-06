@@ -2,7 +2,7 @@
 
 #define PLUGIN_SDK_VERSION_MAJOR 1
 #define PLUGIN_SDK_VERSION_MINOR 0
-#define PLUGIN_SDK_VERSION_PATCH 1
+#define PLUGIN_SDK_VERSION_PATCH 2
 
 #include "Aircraft.h"
 #include "Flightplan.h"
