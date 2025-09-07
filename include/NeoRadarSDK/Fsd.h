@@ -144,7 +144,7 @@ public:
      * @brief Get the current connection state
      * @return Connection state
      */
-    virtual const std::optional<ConnectionInfo> getConnection() = 0;
+    virtual std::optional<ConnectionInfo> getConnection() = 0;
 
 };
 
