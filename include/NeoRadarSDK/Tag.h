@@ -23,6 +23,7 @@ struct TagContext {
     std::string callsign;
     std::string listId;
     std::optional<std::array<unsigned int, 3>> colour;
+    std::optional<std::array<unsigned int, 3>> backgroundColour;
     std::map<std::string, std::string> data;
 };
 
