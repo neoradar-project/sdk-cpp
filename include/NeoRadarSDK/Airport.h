@@ -15,6 +15,15 @@ enum class AirportStatus {
 };
 
 /**
+ * @enum RunwayType
+ * @brief Status of an airport (active/observed)
+ */
+enum class RunwayType {
+    Departure = 0,
+    Arrival = 1
+};
+
+/**
  * @struct AirportConfig
  * @brief Configuration for an airport
  */
@@ -105,41 +114,30 @@ public:
 
     // Write operations
     /**
-     * @brief Toggle departure runway status for an airport
+     * @brief Sets the status of a given runway for an airport
      * @param icao The airport ICAO code
      * @param runway The runway identifier
+     * @param type The configuration type of this runway (dep/arr)
      * @return True if operation was successful, false otherwise
      */
-    virtual bool toggleDepartureRunway(const std::string& icao, const std::string& runway) = 0;
+    virtual bool setRunwayStatus(const std::string& icao, const std::string& runway, const RunwayType type) = 0;
 
     /**
-     * @brief Toggle arrival runway status for an airport
+     * @brief Removes the status of a given runway for an airport
      * @param icao The airport ICAO code
      * @param runway The runway identifier
+     * @param type The configuration type of this runway (dep/arr)
      * @return True if operation was successful, false otherwise
      */
-    virtual bool toggleArrivalRunway(const std::string& icao, const std::string& runway) = 0;
+    virtual bool removeRunwayStatus(const std::string& icao, const std::string& runway, const RunwayType type) = 0;
+
 
     /**
-     * @brief Add a departure airport to the system
+     * @brief Remove an airport from the system
      * @param icao The airport ICAO code
      * @return True if operation was successful, false otherwise
      */
-    virtual bool addDepartureAirport(const std::string& icao) = 0;
-
-    /**
-     * @brief Add an arrival airport to the system
-     * @param icao The airport ICAO code
-     * @return True if operation was successful, false otherwise
-     */
-    virtual bool addArrivalAirport(const std::string& icao) = 0;
-
-    /**
-     * @brief Disable/remove an airport from the system
-     * @param icao The airport ICAO code
-     * @return True if operation was successful, false otherwise
-     */
-    virtual bool disableAirport(const std::string& icao) = 0;
+    virtual bool deleteAirport(const std::string& icao) = 0;
 
     /**
      * @brief Set the status of an airport
