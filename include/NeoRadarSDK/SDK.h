@@ -1,16 +1,8 @@
 #pragma once
 
-#ifndef PLUGIN_SDK_VERSION_MAJOR
 #define PLUGIN_SDK_VERSION_MAJOR 1
-#endif
-
-#ifndef PLUGIN_SDK_VERSION_MINOR
 #define PLUGIN_SDK_VERSION_MINOR 0
-#endif
-
-#ifndef PLUGIN_SDK_VERSION_PATCH
 #define PLUGIN_SDK_VERSION_PATCH 3
-#endif
 
 #include "Aircraft.h"
 #include "Airport.h"
