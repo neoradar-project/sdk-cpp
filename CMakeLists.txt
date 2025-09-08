@@ -6,7 +6,6 @@ project(NeoRadarSDK
     LANGUAGES CXX
 )
 
-set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -27,11 +26,6 @@ target_include_directories(NeoRadarSDK
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
-)
-
-target_compile_features(NeoRadarSDK 
-    PUBLIC 
-        cxx_std_17
 )
 
 if(WIN32)
