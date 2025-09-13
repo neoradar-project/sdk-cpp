@@ -60,19 +60,6 @@ enum class ServerType {
 };
 
 /**
- * @enum ProtocolRevision
- * @brief FSD protocol revisions
- */
-enum class ProtocolRevision {
-    Unknown = 0,
-    Classic = 9,
-    VatsimNoAuth = 10,
-    VatsimAuth = 100,
-    Vatsim2022 = 101,
-    VatsimVelocity = 102
-};
-
-/**
  * @struct ConnectionInfo
  * @brief Minimal connection information
  */
@@ -83,7 +70,6 @@ struct ConnectionInfo {
     NetworkRating rating;
     NetworkFacility facility;
     ServerType serverType;
-    ProtocolRevision protocolRevision;
     bool isConnected;
     std::vector<std::string> atisLines;
     std::vector<int> frequencies;

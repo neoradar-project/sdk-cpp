@@ -9,11 +9,9 @@
 #include "Chat.h"
 #include "Controller.h"
 #include "ControllerData.h"
-#include "EuroScope.h"
 #include "Flightplan.h"
 #include "Fsd.h"
 #include "Logger.h"
-#include "Sectors.h"
 #include "Squawk.h"
 #include "Tag.h"
 #include <filesystem>
@@ -197,18 +195,6 @@ public:
   virtual void OnAircraftAssignedSpeedChanged(
       const ControllerData::AircraftAssignedSpeedChangedEvent *event) {}
 
-  // EuroScope events
-  virtual void OnEuroScopeProxyServerStart(
-      const EuroScope::EuroScopeProxyServerStartEvent *event) {}
-  virtual void OnEuroScopeProxyServerStop(
-      const EuroScope::EuroScopeProxyServerStopEvent *event) {}
-  virtual void OnEuroScopeProxyServerClientConnected(
-      const EuroScope::EuroScopeProxyServerClientConnectedEvent *event) {}
-  virtual void OnEuroScopeProxyServerClientDisconnected(
-      const EuroScope::EuroScopeProxyServerClientDisconnectedEvent *event) {}
-  virtual void OnEuroScopeProxyServerError(
-      const EuroScope::EuroScopeProxyServerErrorEvent *event) {}
-
   // Flightplan events
   virtual void
   OnFlightplanUpdated(const Flightplan::FlightplanUpdatedEvent *event) {}
@@ -228,29 +214,11 @@ public:
   virtual void OnFsdConnectionModelUpdated(
       const Fsd::FsdConnectionModelUpdatedEvent *event) {}
 
-  // Sectors events
-  virtual void
-  OnOwnedSectorUpdated(const Sectors::OwnedSectorUpdatedEvent *event) {}
-
   // Text Message events
-  virtual void
-  OnFrequencyMessageReceived(const Chat::FrequencyMessageReceivedEvent *event) {
-  }
   virtual void OnFlightplanMessageReceived(
       const Chat::FlightplanMessageReceivedEvent *event) {}
   virtual void
   OnATISInfoMessageReceived(const Chat::ATISInfoMessageReceivedEvent *event) {}
-  virtual void
-  OnPrivateMessageReceived(const Chat::PrivateMessageReceivedEvent *event) {}
-  virtual void
-  OnBroadcastMessageReceived(const Chat::BroadcastMessageReceivedEvent *event) {
-  }
-  virtual void OnSupervisorMessageReceived(
-      const Chat::SupervisorMessageReceivedEvent *event) {}
-  virtual void
-  OnServerMessageReceived(const Chat::ServerMessageReceivedEvent *event) {}
-  virtual void
-  OnAtcMessageReceived(const Chat::AtcMessageReceivedEvent *event) {}
 
   // Squawk events
   virtual void OnSquawkAssigned(const Squawk::SquawkAssignedEvent *event) {}

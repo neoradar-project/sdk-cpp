@@ -24,6 +24,15 @@ enum class RunwayType {
 };
 
 /**
+ * @struct RunwayStatusChange
+ */
+struct RunwayStatusChange {
+    std::string icao;
+    std::string runway;
+    RunwayType type;
+};
+
+/**
  * @struct AirportConfig
  * @brief Configuration for an airport
  */
@@ -123,6 +132,14 @@ public:
     virtual bool setRunwayStatus(const std::string& icao, const std::string& runway, const RunwayType type) = 0;
 
     /**
+     * @brief Shows/hides runway centerlines
+     * @param icao The airport ICAO code
+     * @param show Whether to show or hide runway centerlines
+     * @return True if operation was successful, false otherwise
+     */
+    virtual bool setShowRunwayCenterlines(const std::string& icao, bool show) = 0;
+
+    /**
      * @brief Removes the status of a given runway for an airport
      * @param icao The airport ICAO code
      * @param runway The runway identifier
@@ -131,6 +148,17 @@ public:
      */
     virtual bool removeRunwayStatus(const std::string& icao, const std::string& runway, const RunwayType type) = 0;
 
+
+    /**
+         * @brief Batch update runway statuses with additions and removals
+         * @param toAdd Vector of runway status changes to add
+         * @param toRemove Vector of runway status changes to remove
+         * @return Tuple of (successful additions, failed additions, successful removals, failed removals)
+     */
+    virtual std::tuple<std::vector<RunwayStatusChange>, std::vector<RunwayStatusChange>,
+        std::vector<RunwayStatusChange>, std::vector<RunwayStatusChange>>
+    batchUpdateRunways(const std::vector<RunwayStatusChange>& toAdd,
+        const std::vector<RunwayStatusChange>& toRemove) = 0;
 
     /**
      * @brief Remove an airport from the system
