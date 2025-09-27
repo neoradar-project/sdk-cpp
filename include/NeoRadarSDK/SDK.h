@@ -2,10 +2,11 @@
 
 #define PLUGIN_SDK_VERSION_MAJOR 1
 #define PLUGIN_SDK_VERSION_MINOR 0
-#define PLUGIN_SDK_VERSION_PATCH 3
+#define PLUGIN_SDK_VERSION_PATCH 4
 
 #include "Aircraft.h"
 #include "Airport.h"
+#include "Package.h"
 #include "Chat.h"
 #include "Controller.h"
 #include "ControllerData.h"
@@ -48,6 +49,12 @@ struct ClientInformation {
 class CoreAPI {
 public:
   virtual ~CoreAPI() = default;
+
+  /**
+  * @brief Get the Chat API
+  * @return Reference to the Chat API
+  */
+  virtual Package::PackageAPI &package() = 0;
 
   /**
    * @brief Get the aircraft API
@@ -108,6 +115,8 @@ public:
    * @return Reference to the Chat API
    */
   virtual Chat::ChatAPI &chat() = 0;
+
+
 };
 
 /**
