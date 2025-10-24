@@ -2,7 +2,7 @@
 
 #define PLUGIN_SDK_VERSION_MAJOR 1
 #define PLUGIN_SDK_VERSION_MINOR 0
-#define PLUGIN_SDK_VERSION_PATCH 4
+#define PLUGIN_SDK_VERSION_PATCH 5
 
 #include "Aircraft.h"
 #include "Airport.h"
@@ -235,6 +235,8 @@ public:
   // Tag events
   virtual void OnTagAction(const Tag::TagActionEvent *event) {}
   virtual void OnTagDropdownAction(const Tag::DropdownActionEvent *event) {}
+  virtual bool OnTagShowDropdown(const std::string& actionId, const std::string& callsign) { return true;};
+
 };
 
 } // namespace PluginSDK
