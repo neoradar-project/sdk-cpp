@@ -44,7 +44,8 @@ enum class DropdownComponentType {
     Toggle,
     Radio,
     Group,
-    ScrollArea
+    ScrollArea,
+    InputArea
 };
 
 enum class DropdownAlignmentType { Center, Right, Left };
