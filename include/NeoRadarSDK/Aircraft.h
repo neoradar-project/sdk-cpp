@@ -75,7 +75,7 @@ struct Position {
  */
 struct Aircraft {
     std::string callsign;
-    int cid;
+    std::optional<int> cid;
     std::string name;
 
     Position position;
@@ -101,7 +101,7 @@ struct Aircraft {
  */
 struct AircraftConnectedEvent {
     std::string callsign;
-    int cid;
+    std::optional<int> cid;
 };
 
 /**
