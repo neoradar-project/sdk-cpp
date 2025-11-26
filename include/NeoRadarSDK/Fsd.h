@@ -68,6 +68,7 @@ struct ConnectionInfo {
     int cid;
     std::string name;
     NetworkRating rating;
+    bool isATC;
     NetworkFacility facility;
     ServerType serverType;
     bool isConnected;
