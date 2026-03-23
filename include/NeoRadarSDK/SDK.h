@@ -13,8 +13,10 @@
 #include "Flightplan.h"
 #include "Fsd.h"
 #include "Logger.h"
+#include "Rendering.h"
 #include "Squawk.h"
 #include "Tag.h"
+#include "Window.h"
 #include <filesystem>
 #include <string>
 
@@ -116,6 +118,17 @@ public:
    */
   virtual Chat::ChatAPI &chat() = 0;
 
+  /**
+   * @brief Get the Rendering API for drawing on the radar map
+   * @return Reference to the Rendering API
+   */
+  virtual Rendering::RenderingAPI &rendering() = 0;
+
+  /**
+   * @brief Get the Window API for creating plugin UI windows
+   * @return Reference to the Window API
+   */
+  virtual Window::WindowAPI &window() = 0;
 
 };
 
@@ -235,7 +248,15 @@ public:
   // Tag events
   virtual void OnTagAction(const Tag::TagActionEvent *event) {}
   virtual void OnTagDropdownAction(const Tag::DropdownActionEvent *event) {}
-  virtual bool OnTagShowDropdown(const std::string& actionId, const std::string& callsign) { return true;};
+  virtual bool OnTagShowDropdown(const std::string& actionId, const std::string& callsign) { return true; }
+
+  // Rendering events
+  virtual void OnRenderObjectClicked(const Rendering::RenderObjectEvent *event) {}
+  virtual void OnRenderObjectHovered(const Rendering::RenderObjectEvent *event) {}
+  virtual void OnViewportChanged(const Rendering::ViewportInfo *info) {}
+
+  // Window events
+  virtual void OnWindowEvent(const Window::WindowEvent *event) {}
 
 };
 
