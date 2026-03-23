@@ -1,4 +1,5 @@
 #pragma once
+#include <array>
 #include <cstdint>
 #include <optional>
 #include <string>
@@ -68,7 +69,7 @@ struct WindowEvent {
 class WindowInterface {
 public:
     virtual ~WindowInterface() = default;
-    virtual WindowHandle CreateWindow(const WindowDefinition& def) = 0;
+    virtual WindowHandle OpenWindow(const WindowDefinition& def) = 0;
     virtual bool UpdateElement(WindowHandle window, const std::string& elementId,
                                const std::string& text) = 0;
     virtual bool CloseWindow(WindowHandle window) = 0;
